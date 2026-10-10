@@ -1,4 +1,4 @@
-# gaypad v0.3
+# gaypad v0.4
 
 <p align="center">
   <img src="artwork/gaypad-banner.png" alt="Pixel-art arcade controller with red joystick and neon cyan and yellow rays" width="900">
@@ -12,17 +12,17 @@ The banner is the original artwork supplied for this project. The launcher icon 
 
 1. Install `app/build/outputs/apk/debug/app-debug.apk` on the Pixel and turn Bluetooth on for both devices.
 2. Open gaypad, grant Nearby devices access, and wait for **Ready / waiting for host**.
-3. Tap **Pair** and accept Android's discoverability prompt. On the iPad open **Settings → Bluetooth**, choose the Pixel, and confirm the pairing code on both devices. Keep gaypad visible after accepting the prompt. If the iPad does not find it, open the Pixel's Bluetooth Settings to make the phone discoverable, return to gaypad, and try again. Android may unregister the HID service while gaypad is in the background; it re-registers on return.
-4. Tap **Refresh hosts** and tap the iPad's paired-device name to request an HID connection. The iPad may also connect on its own. Wait for **Connected: …**.
+3. Open **Settings** in gaypad and tap **Make discoverable**. Accept Android's prompt. On the iPad open **Settings → Bluetooth**, choose the Pixel, and confirm the pairing code on both devices. Keep gaypad visible after accepting the prompt. If the iPad does not find it, open the Pixel's Bluetooth Settings to make the phone discoverable, return to gaypad, and try again. Android may unregister the HID service while gaypad is in the background; it re-registers on return.
+4. In gaypad Settings, tap **Refresh hosts** and then **Connect** beside the iPad. The iPad may also connect on its own. Wait for **Connected: …**, then close Settings.
 5. Open an iPad text field to check letters, arrows, Enter, and Shift. Then bind the keys in RetroArch.
 
-The mapping is in `KeyMappings` in `KeyboardReport.kt`. **P1 keys** retain the original D-pad arrows, B=Z, A=X, Y=A, X=S, L=Q, R=W, Start=Enter, Select=Right Shift. **P2 keys** use a separate set: Up=8, Down=2, Left=4, Right=6, B=1, A=3, Y=7, X=9, L=5, R=0, Start=minus, Select=equals. Tap the `P1 keys` / `P2 keys` control to switch; the choice is saved. Buttons support simultaneous touches.
+The mapping is in `KeyMappings` in `KeyboardReport.kt`. **P1 keys** retain the original D-pad arrows, B=Z, A=X, Y=A, X=S, L=Q, R=W, Start=Enter, Select=Right Shift. **P2 keys** use a separate set: Up=8, Down=2, Left=4, Right=6, B=1, A=3, Y=7, X=9, L=5, R=0, Start=minus, Select=equals. Switch layouts in gaypad Settings; the choice is saved. The current app version also appears there. Buttons support simultaneous touches.
 
 ## Two players in RetroArch
 
 The Pixel remains one Bluetooth keyboard, separate from the Xbox controller. RetroArch's default keyboard binds match **P1 keys**, so both inputs control Player 1 until Port 2 is configured. A Bluetooth keyboard will not appear as a second game controller in iPadOS Settings.
 
-1. Connect the Xbox controller and gaypad. In gaypad select **P2 keys**.
+1. Connect the Xbox controller and gaypad. In gaypad Settings select **P2 keys**.
 2. In RetroArch set **Settings → Input → Maximum Users** to at least 2.
 3. Open **Settings → Input → RetroPad Binds → Port 1 Controls** and set **Device Index** to the Xbox controller. Keep its gamepad bindings.
 4. Open **Port 2 Controls** and bind its D-pad, A/B/X/Y, shoulders, Start, and Select using the Pixel buttons. The new keys do not overlap the default Port 1 keyboard binds. If **Set All Controls** accepts keyboard presses, use it; otherwise bind each control individually.
@@ -40,4 +40,4 @@ The Android application ID remains `dev.tenezpad` so existing installations upgr
 
 ## Physical validation
 
-Keyboard HID pairing, text-field key delivery, and two-player gameplay with an Xbox controller were confirmed with Daniel iPad. Extended tests of Down+Right, Right+B, L+A, Select+A, and quick app switching remain useful for v0.3. A key must stop when released or when gaypad leaves the foreground. Check Logcat with `adb logcat -s gaypad` for registration, connection, and report failures.
+Keyboard HID pairing, text-field key delivery, and two-player gameplay with an Xbox controller were confirmed with Daniel iPad. The v0.4 controller visuals and Settings popup need a Pixel/iPad check. Test that opening Settings releases held keys, that the popup fits in landscape, and that pairing, host selection, and P1/P2 switching still work. Also test Down+Right, Right+B, L+A, Select+A, and quick app switching. A key must stop when released or when gaypad leaves the foreground. Check Logcat with `adb logcat -s gaypad` for registration, connection, and report failures.

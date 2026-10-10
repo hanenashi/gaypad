@@ -17,3 +17,11 @@ Result: v0.2 Port 2 keyboard bindings and the Xbox controller controlled separat
 ## v0.3: gaypad identity
 
 Use the supplied arcade artwork as the README hero, derive a launcher icon from it, and rename launcher/UI/Bluetooth SDP text to `gaypad`. Keep the application ID for in-place upgrades. Confirmed v0.3 upgrades and reconnects to Daniel iPad.
+
+## v0.3: continuous eight-way D-pad
+
+Replace the four D-pad buttons with one square pointer surface. A pure Kotlin resolver uses independent horizontal and vertical thresholds, a center dead zone, and mild hysteresis; positions outside the surface resolve to neutral. Keep one owning pointer until it lifts, release removed directions before pressing added ones, and clear directions on cancellation. Draw one cross-shaped pad with active arms while leaving the other buttons and Bluetooth HID code unchanged. Unit test all directions, dead-zone boundaries, transitions, and outside release; then run tests, lint, and a debug build. Verify thumb slides and simultaneous buttons on the Pixel and iPad.
+
+## v0.4: controller visuals and Settings popup
+
+Keep the proven touch controls and HID behavior. Give the controller a unified shell, a more physical D-pad face, and distinct round face buttons. Move pairing, host connection, and layout switching into a scrollable Settings popup while keeping connection status visible during play. Show the Gradle app version in Settings. Release active controls when opening the popup and verify the layout and connection flow on the Pixel and iPad.

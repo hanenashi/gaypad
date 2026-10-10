@@ -55,6 +55,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             key(inputEpoch) { GamepadScreen(
                 status = status,
+                version = BuildConfig.VERSION_NAME,
                 connected = connected,
                 layout = layout,
                 hosts = hosts,
