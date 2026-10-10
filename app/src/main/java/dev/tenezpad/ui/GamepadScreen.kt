@@ -44,7 +44,7 @@ fun GamepadScreen(
 ) {
     Column(Modifier.fillMaxSize().background(bg).padding(horizontal = 14.dp, vertical = 5.dp)) {
         Row(Modifier.fillMaxWidth().height(42.dp), verticalAlignment = Alignment.CenterVertically) {
-            Text("TenezPad", color = Color.White, fontSize = 18.sp, fontWeight = FontWeight.Bold)
+            Text("gaypad", color = Color.White, fontSize = 18.sp, fontWeight = FontWeight.Bold)
             Spacer(Modifier.width(12.dp))
             Text(status, Modifier.weight(1f), color = Color(0xFFC8D6EA), fontSize = 13.sp, maxLines = 1, overflow = TextOverflow.Ellipsis)
             SmallAction(if (layout == KeyLayout.PLAYER_ONE) "P1 keys" else "P2 keys", onToggleLayout)

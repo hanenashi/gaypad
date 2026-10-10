@@ -181,7 +181,7 @@ class HidKeyboardManager(
         if (!started || registered || registrationPending || !hasPermission()) return
         val hid = proxy ?: return
         val sdp = BluetoothHidDeviceAppSdpSettings(
-            "TenezPad", "Keyboard controller", "TenezPad",
+            "gaypad", "Keyboard controller", "gaypad",
             BluetoothHidDevice.SUBCLASS1_KEYBOARD, KeyboardDescriptor.bytes
         )
         registrationPending = true
@@ -290,5 +290,5 @@ class HidKeyboardManager(
         if (hasPermission()) device.name ?: "Paired device" else "Paired device"
     } catch (_: SecurityException) { "Paired device" }
 
-    companion object { const val TAG = "TenezPad" }
+    companion object { const val TAG = "gaypad" }
 }
